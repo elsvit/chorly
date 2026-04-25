@@ -1,0 +1,67 @@
+{
+  "jsonLanguage": "English",
+  "common": {
+    "completed": "Completed",
+    "date": "Date",
+    "description": "Description",
+    "disabled": "Disabled",
+    "expirationTime": "Expiration Time",
+    "no_items": "No items",
+    "loading": "Loading...",
+    "no_data_found": "No data found",
+    "rating": "Rating",
+    "required": "Required",
+    "search": "Search",
+    "step": "Step",
+    "stepIndicator": "Step {{step}} of {{totalSteps}}",
+    "tags": "Tags"
+  },
+  "button": {
+    "add": "Add",
+    "cancel": "Cancel",
+    "save": "Save",
+    "next": "Next",
+    "previous": "Previous",
+    "done": "Done",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm"
+  },
+  "time": {
+    "day": "day",
+    "days": "days",
+    "month": "month",
+    "months": "months",
+    "year": "year",
+    "years": "years",
+    "h": "h",
+    "hour": "hour",
+    "hours": "hours",
+    "min": "min",
+    "minute": "minute",
+    "minutes": "minutes",
+    "sec": "sec",
+    "second": "second",
+    "seconds": "seconds"
+  },
+  "home": {
+    "title": "Home"
+  },
+  "menu": {
+    "title": "Menu"
+  },
+  "more": {
+    "title": "More",
+    "language": "Language"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language"
+  },
+  "parents": {
+    "title": "Parents"
+  },
+  "children": {
+    "title": "Children"
+  }
+}
