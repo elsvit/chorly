@@ -1,0 +1,67 @@
+{
+  "jsonLanguage": "Español",
+  "common": {
+    "completed": "Completado",
+    "date": "Fecha",
+    "description": "Descripción",
+    "disabled": "Deshabilitado",
+    "expirationTime": "Tiempo de Caducidad",
+    "loading": "Cargando...",
+    "no_data_found": "No se encontraron datos",
+    "no_items": "No hay elementos",
+    "rating": "Puntuación",
+    "required": "Requerido",
+    "search": "Buscar",
+    "step": "Paso",
+    "stepIndicator": "Paso {{step}} de {{totalSteps}}",
+    "tags": "Etiquetas"
+  },
+  "button": {
+    "add": "Agregar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "done": "Listo",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "confirm": "Confirmar"
+  },
+  "time": {
+    "day": "día",
+    "days": "días",
+    "month": "mes",
+    "months": "meses",
+    "year": "año",
+    "years": "años",
+    "h": "h",
+    "hour": "hora",
+    "hours": "horas",
+    "min": "min",
+    "minute": "minuto",
+    "minutes": "minutos",
+    "sec": "seg",
+    "second": "segundo",
+    "seconds": "segundos"
+  },
+  "home": {
+    "title": "Inicio"
+  },
+  "menu": {
+    "title": "Menú"
+  },
+  "more": {
+    "title": "Más",
+    "language": "Idioma"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "language": "Idioma"
+  },
+  "parents": {
+    "title": "Padres"
+  },
+  "children": {
+    "title": "Hijos"
+  }
+}
