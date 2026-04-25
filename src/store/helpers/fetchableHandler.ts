@@ -1,7 +1,7 @@
 import {
   Effect,
-  ActionPattern,
-  ActionMatchingPattern,
+  // ActionPattern,
+  // ActionMatchingPattern,
   Action,
 } from '@redux-saga/types';
 import { PayloadAction } from '@reduxjs/toolkit';
@@ -12,7 +12,7 @@ import { ActionApiT } from '~/store/common';
 import { IError } from '~/types/IError';
 
 export function* captureError(error: any, context?: any) {
-  // ToDo: add user notification handler
+  // ToDo: add notification handler
   // yield put(addNotification(NotificationDict.ERROR, e.message));
   // errorTracking.captureError({ error, context });
 }

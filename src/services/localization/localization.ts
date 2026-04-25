@@ -3,12 +3,7 @@ import { es } from 'date-fns/locale';
 import i18next, { InitOptions } from 'i18next';
 import { I18nManager, NativeModules } from 'react-native';
 
-import {
-  DEFAULT_LANG,
-  DEFAULT_DATE_LOCALE,
-  FALLBACK_LANG,
-  IS_IOS,
-} from '~/constants/settings';
+import { DEFAULT_DATE_LOCALE, DEFAULT_LANG, FALLBACK_LANG, IS_IOS, } from '~/constants/settings';
 import { ELang, IAvailableLanguages, KeyOfJson } from '~/types/ILang';
 
 import enJson from '~/assets/translation/en.json';
@@ -45,8 +40,7 @@ class LocalizationServiceClass {
       return false;
     }
 
-    const isLangAvailable = AvailableLanguages.some(val => val.code === lang);
-    return isLangAvailable;
+    return AvailableLanguages.some(val => val.code === lang);
   };
 
   private getDateLocale = (lang: string | undefined) => {
