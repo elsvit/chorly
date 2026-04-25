@@ -5,7 +5,7 @@ import {
   IStateCommon,
   IActionTypePayload,
 } from './types';
-import { EStateName } from '../types';
+import { EStateName } from '~/store';
 
 const initialState: IStateCommon = {
   [ECommonActions.LOADING]: {},

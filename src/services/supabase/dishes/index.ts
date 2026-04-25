@@ -1,1 +1,0 @@
-export { SupabaseDishesService } from './dishes';

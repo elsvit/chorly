@@ -1,1 +1,0 @@
-export { SupabaseGenericProductsService } from './genericProducts';

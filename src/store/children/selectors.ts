@@ -1,15 +1,15 @@
 import { createSelector } from 'reselect';
 import { RootStateT } from '~/store';
-import { usersAdapter } from './slice';
+import { childrenAdapter } from './slice';
 
 // Base selectors
-export const getUsersState = (state: RootStateT) => state.users;
+export const getChildrenState = (state: RootStateT) => state.children;
 
 // Adapter selectors
 export const {
-  selectAll: selectAllUsers,
-  selectById: selectUserById,
-  selectIds: selectUserIds,
-  selectEntities: selectUserEntities,
-  selectTotal: selectTotalUsers,
-} = usersAdapter.getSelectors((state: RootStateT) => state.users);
+  selectAll: selectAllChildren,
+  selectById: selectChildById,
+  selectIds: selectChildIds,
+  selectEntities: selectChildEntities ,
+  selectTotal: selectTotalChildren,
+} = childrenAdapter.getSelectors((state: RootStateT) => state.children);

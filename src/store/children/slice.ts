@@ -9,14 +9,14 @@ import {
 import { AddChildrenPayload, UpdateChildrenPayload } from './types';
 
 // Create entity adapter for dishes
-export const usersAdapter = createGenericEntityAdapter<IChild>();
+export const childrenAdapter = createGenericEntityAdapter<IChild>();
 
 const initialState: IStateChildren = {
-  ...usersAdapter.getInitialState(),
+  ...childrenAdapter.getInitialState(),
 };
 
 // Create generic entity reducers
-const entityReducers = createEntityReducers(usersAdapter);
+const entityReducers = createEntityReducers(childrenAdapter);
 
 export const childrenSlice = createSlice({
   name: EStateName.children,

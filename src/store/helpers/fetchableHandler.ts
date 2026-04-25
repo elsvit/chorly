@@ -6,9 +6,9 @@ import {
 } from '@redux-saga/types';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { call, takeLatest, ForkEffect, put } from 'redux-saga/effects';
-import { Saga } from '../types';
-import { setError, setLoaded, setLoading } from '../common/slice';
-import { ActionApiT } from '../common/types';
+import { Saga } from '~/store';
+import { setError, setLoaded, setLoading } from '~/store/common';
+import { ActionApiT } from '~/store/common';
 import { IError } from '~/types/IError';
 
 export function* captureError(error: any, context?: any) {
