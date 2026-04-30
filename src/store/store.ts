@@ -1,4 +1,3 @@
-// store/index.ts
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
@@ -12,6 +11,9 @@ import { settingsSagas, settingsSlice, IStateSettings } from './settings';
 import { parentsSlice, IStateParents } from './parents';
 import { childrenSlice, IStateChildren } from './children';
 import { commonSlice } from './common/slice';
+import { tasksSlice, IStateTasks } from './tasks';
+import { taskBaseSlice, IStateTaskBase } from './taskBase';
+import { taskAssignmentSlice, IStateTaskAssignment } from './taskAssignment';
 import { EStateName } from './types';
 import { IS_WEB } from '~/constants';
 
@@ -49,6 +51,27 @@ const childrenPersistConfig: PersistConfig<IStateChildren> = {
   whitelist: ['entities'],
 };
 
+const tasksPersistConfig: PersistConfig<IStateTasks> = {
+  key: EStateName.tasks,
+  storage,
+  stateReconciler: autoMergeLevel2,
+  whitelist: ['entities'],
+};
+
+const taskBasePersistConfig: PersistConfig<IStateTaskBase> = {
+  key: EStateName.taskBase,
+  storage,
+  stateReconciler: autoMergeLevel2,
+  whitelist: ['entities'],
+};
+
+const taskAssignmentPersistConfig: PersistConfig<IStateTaskAssignment> = {
+  key: EStateName.taskAssignment,
+  storage,
+  stateReconciler: autoMergeLevel2,
+  whitelist: ['entities'],
+};
+
 // Combine reducers
 const settingsReducer = IS_WEB
   ? settingsSlice.reducer
@@ -62,11 +85,29 @@ const childrenReducer = IS_WEB
   ? childrenSlice.reducer
   : persistReducer<IStateChildren>(childrenPersistConfig, childrenSlice.reducer);
 
+const tasksReducer = IS_WEB
+  ? tasksSlice.reducer
+  : persistReducer<IStateTasks>(tasksPersistConfig, tasksSlice.reducer);
+
+const taskBaseReducer = IS_WEB
+  ? taskBaseSlice.reducer
+  : persistReducer<IStateTaskBase>(taskBasePersistConfig, taskBaseSlice.reducer);
+
+const taskAssignmentReducer = IS_WEB
+  ? taskAssignmentSlice.reducer
+  : persistReducer<IStateTaskAssignment>(
+      taskAssignmentPersistConfig,
+      taskAssignmentSlice.reducer
+    );
+
 const rootReducer = combineReducers({
   [EStateName.common]: commonSlice.reducer,
   [EStateName.settings]: settingsReducer,
   [EStateName.parents]: parentsReducer,
   [EStateName.children]: childrenReducer,
+  [EStateName.tasks]: tasksReducer,
+  [EStateName.taskBase]: taskBaseReducer,
+  [EStateName.taskAssignment]: taskAssignmentReducer,
 });
 
 // Saga middleware
