@@ -44,10 +44,12 @@
     "redux-saga": "^1.4.2"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/react": "~19.1.0",
     "@types/redux-logger": "^3.0.13",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",
+    "prettier": "^3.8.3",
     "react-native-svg-transformer": "^1.5.3",
     "redux-logger": "^3.0.6",
     "typescript": "~5.9.2"
