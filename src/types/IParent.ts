@@ -1,11 +1,15 @@
-export interface IParent {
+import { ERole } from '~/store/settings/enums';
+
+export interface IParent extends CreatedProps {
   id: string;
   name: string;
   lastName?: string;
+  role?: ERole;
   email?: string; // not for now
   passwordHash?: string; // not for now
-  updatedAt?: string;
-  createdAt: string;
 }
 
-export type ParentFormProps = Omit<IParent, 'id' | 'updatedAt' | 'createdAt'>;
+export type ParentFormProps = Omit<
+  IParent,
+  'id' | 'createdBy' | 'createdAt' | 'updatedBy' | 'updatedAt'
+>;

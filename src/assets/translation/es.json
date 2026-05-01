@@ -63,5 +63,14 @@
   },
   "children": {
     "title": "Hijos"
+  },
+  "rewards": {
+    "title": "Premio"
+  },
+  "routines": {
+    "title": "Rutinas"
+  },
+  "tasks": {
+    "title": "Tareas"
   }
 }

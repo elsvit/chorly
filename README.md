@@ -48,3 +48,28 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- 
+Fonts
+- Rubik: [Google Fonts](https://fonts.google.com/specimen/Rubik)
+- Roboto: [Google Fonts](https://fonts.google.com/specimen/Roboto)
+- Fredoka One: [Google Fonts](https://fonts.google.com/specimen/Fredoka+One)
+
+using:
+import { useFonts } from 'expo-font';
+import {
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+} from '@expo-google-fonts/roboto';
+
+export default function RootLayout() {
+  const [fontsLoaded] = useFonts({
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+  });
+
+  if (!fontsLoaded) return null;
+
+  return <Stack />;
+}

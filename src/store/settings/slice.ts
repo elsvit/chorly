@@ -1,19 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ELang } from '~/types/ILang';
-import { IStateSettings } from './types';
-// import { IUser } from '~/types/IUser';
-import { EStateName } from '~/store';
-// import { RootStateT } from '../store';
-// import {
-//   createGenericEntityAdapter,
-//   createEntityReducers,
-// } from '../helpers/entityAdapter';
+import { ELang } from '~/types/ELang';
+import type{ IStateSettings } from './types';
+import { EStateName } from '~/store/enums';
 
 const initialState: IStateSettings = {
-  // role: ERole.admin,
   lang: null,
-  isLangInitiating: true, // Change from null to true
-  // users: usersAdapter.getInitialState(),
+  isLangInitiating: true, // TODO Change from null to true
+  isRecurringTabSeparated: true,
 };
 
 export const settingsSlice = createSlice({
@@ -27,6 +20,9 @@ export const settingsSlice = createSlice({
       state.lang = action.payload;
       state.isLangInitiating = false; // Set to false when language is set
     },
+    setIsRecurringTabSeparated: (state, action: PayloadAction<boolean>) => {
+      state.isRecurringTabSeparated = action.payload;
+    },
   },
 });
 
@@ -34,8 +30,6 @@ export const settingsSlice = createSlice({
 export const {
   initLanguage,
   setLanguage,
-  // setRole,
+  setIsRecurringTabSeparated,
 } = settingsSlice.actions;
 
-// Export the adapter for use in selectors
-// export { usersAdapter };

@@ -1,12 +1,7 @@
-import { ELang } from '~/types/ILang';
-
-// export enum ERole {
-//   admin = 'admin',
-//   parent = 'parent',
-// }
+import { ELang } from '~/types/ELang';
 
 export interface IStateSettings {
-  // role: ERole;
   lang: ELang | null;
   isLangInitiating: boolean | null;
+  isRecurringTabSeparated: boolean;
 }

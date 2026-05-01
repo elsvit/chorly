@@ -4,7 +4,9 @@ import i18next, { InitOptions } from 'i18next';
 import { I18nManager, NativeModules } from 'react-native';
 
 import { DEFAULT_DATE_LOCALE, DEFAULT_LANG, FALLBACK_LANG, IS_IOS, } from '~/constants/settings';
-import { ELang, IAvailableLanguages, KeyOfJson } from '~/types/ILang';
+import { IAvailableLanguages, KeyOfJson } from '~/types/ILang';
+import { ELang } from '~/types/ELang';
+
 
 import enJson from '~/assets/translation/en.json';
 import esJson from '~/assets/translation/es.json';

@@ -36,3 +36,10 @@ type Persisted<T> = T & { _persist?: unknown };
 //   function remotedev(store: Store, options?: RemoteDevOptions): Store;
 //   export default remotedev;
 // }
+
+type CreatedProps = {
+  createdBy: string;
+  createdAt: string;
+  updatedBy?: string;
+  updatedAt?: string;
+};

@@ -1,6 +1,5 @@
-// import { createSelector } from 'reselect';
 import type { RootStateT } from '~/store';
-import { EStateName } from '~/store/types';
+import { EStateName } from '~/store/enums';
 import type { IStateSettings } from './types';
 
 export const getSettingsState = (state: RootStateT) => state[EStateName.settings];
@@ -10,3 +9,6 @@ export const selectLang = (state: RootStateT) =>
 
 export const selectIsLangInitiating = (state: RootStateT) =>
   (state[EStateName.settings] as Persisted<IStateSettings>).isLangInitiating;
+
+export const selectIsRecurringTabSeparated = (state: RootStateT) =>
+  (state[EStateName.settings] as Persisted<IStateSettings>).isRecurringTabSeparated;

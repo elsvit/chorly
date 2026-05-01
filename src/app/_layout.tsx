@@ -1,24 +1,50 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from '~/store';
+import RootStack from './RootStack';
 
-import { useColorScheme } from '~/hooks/use-color-scheme';
+import { useFonts } from 'expo-font';
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+import {
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+} from '@expo-google-fonts/roboto';
+
+import {
+  Rubik_400Regular,
+  Rubik_500Medium,
+  Rubik_700Bold,
+} from '@expo-google-fonts/rubik';
+
+import {
+  Fredoka_400Regular,
+  Fredoka_500Medium,
+  Fredoka_600SemiBold,
+  Fredoka_700Bold,
+} from '@expo-google-fonts/fredoka';
+
+
+
+// export const unstable_settings = {
+//   anchor: '(tabs)',
+// };
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Provider store={store}>
+      {persistor ? (
+        <PersistGate loading={null} persistor={persistor}>
+          <RootStack />
+        </PersistGate>
+      ) : (
+        <>
+          <RootStack />
+          <StatusBar style="auto" />
+        </>
+      )}
+    </Provider>
   );
 }

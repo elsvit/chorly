@@ -1,9 +1,5 @@
 import { Locale } from 'date-fns';
-
-export enum ELang {
-  en = 'en',
-  es = 'es',
-}
+import { ELang } from './ELang';
 
 export interface IAvailableLanguages {
   code: ELang;

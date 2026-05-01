@@ -1,4 +1,4 @@
-import { ELang } from '~/types/ILang';
+import { ELang } from '~/types/ELang';
 import { Appearance, Platform } from 'react-native';
 import { es } from 'date-fns/locale';
 
