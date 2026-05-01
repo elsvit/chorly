@@ -37,9 +37,9 @@ type Persisted<T> = T & { _persist?: unknown };
 //   export default remotedev;
 // }
 
-export type CreatedProps = {
+type CreatedProps = {
   createdBy: string;
   createdAt: string;
   updatedBy?: string;
   updatedAt?: string;
-}
+};

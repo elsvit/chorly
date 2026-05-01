@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ELang } from '~/types/ILang';
-import { IStateSettings } from './types';
-import { EStateName } from '~/store';
+import { ELang } from '~/types/ELang';
+import type{ IStateSettings } from './types';
+import { EStateName } from '~/store/enums';
 
 const initialState: IStateSettings = {
   lang: null,

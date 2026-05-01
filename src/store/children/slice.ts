@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IStateChildren, RemoveChildrenPayload } from './types';
 import { IChild } from '~/types/IChild';
-import { EStateName } from '~/store';
+import { EStateName } from '~/store/enums';
 import {
   createGenericEntityAdapter,
   createEntityReducers,

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IStateTasks, RemoveTasksPayload } from './types';
 import { ITask } from '~/types/ITask';
-import { EStateName } from '~/store';
+import { EStateName } from '~/store/enums';
 import {
   createGenericEntityAdapter,
   createEntityReducers,

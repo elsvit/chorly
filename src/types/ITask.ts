@@ -1,20 +1,5 @@
-import { CreatedProps } from '../../types';
+import { ETaskRepeatType, ETaskStatus } from './ETasks';
 import { WeekDay } from './ICommon';
-
-export enum ETaskStatus {
-  Pending = 'pending',
-  Completed = 'completed',
-  Approved = 'approved',
-  Rejected = 'rejected',
-  Cancelled = 'cancelled',
-}
-
-export enum ETaskRepeatType {
-  None = 'none',
-  Daily = 'daily',
-  Weekly = 'weekly',
-  Monthly = 'monthly',
-}
 
 export interface ITaskBase extends CreatedProps {
   id: string;

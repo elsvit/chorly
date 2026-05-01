@@ -14,7 +14,7 @@ import { commonSlice } from './common/slice';
 import { tasksSlice, IStateTasks } from './tasks';
 import { taskBaseSlice, IStateTaskBase } from './taskBase';
 import { taskAssignmentSlice, IStateTaskAssignment } from './taskAssignment';
-import { EStateName } from './types';
+import { EStateName } from './enums';
 import { IS_WEB } from '~/constants';
 
 // Root saga

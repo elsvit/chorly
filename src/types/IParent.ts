@@ -1,8 +1,6 @@
-import { CreatedProps } from "../../types";
-import { ERole } from "~/store/settings";
+import { ERole } from '~/store/settings/enums';
 
-
-export interface IParent extends CreatedProps  {
+export interface IParent extends CreatedProps {
   id: string;
   name: string;
   lastName?: string;
@@ -11,4 +9,7 @@ export interface IParent extends CreatedProps  {
   passwordHash?: string; // not for now
 }
 
-export type ParentFormProps = Omit<IParent, 'id' | 'createdBy' | 'createdAt' | 'updatedBy' | 'updatedAt'>;
+export type ParentFormProps = Omit<
+  IParent,
+  'id' | 'createdBy' | 'createdAt' | 'updatedBy' | 'updatedAt'
+>;
