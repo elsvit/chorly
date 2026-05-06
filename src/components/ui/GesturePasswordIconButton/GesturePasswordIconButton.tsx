@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
-import { Button } from '~/components/ui/Button/Button';
 import { ButtonColors } from '~/components/ui/Button';
 import { GesturePasswordModal } from '~/components/users/UserPassword';
 import { t } from '~/services';

@@ -8,7 +8,7 @@ import { SafeAreaBackground } from '~/components/blocks/SafeAreaBackground';
 import { Button } from '~/components/ui/Button/Button';
 import { useI18nHeaderTitle } from '~/hooks/useI18nHeaderTitle';
 import { t } from '~/services';
-import { clearParents } from '~/store/parents/slice';
+// import { clearParents } from '~/store/parents/slice';
 
 export default function ParentRemove() {
   useI18nHeaderTitle('users.delete');

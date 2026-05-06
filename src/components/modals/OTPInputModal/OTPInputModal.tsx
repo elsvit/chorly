@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Modal, Pressable, SafeAreaView, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, SafeAreaView, View } from 'react-native';
 
 import CloseIcon from '~/assets/svg/common/cross.svg';
 import { Text } from '~/components/ui';
 import { IconButton } from '~/components/ui/IconButton';
 import { OTPInput } from '~/components/ui/OTPInput';
-import { ThemeColors } from '~/constants/theme';
 import { t } from '~/services';
 import { Colors } from '~/styles';
 

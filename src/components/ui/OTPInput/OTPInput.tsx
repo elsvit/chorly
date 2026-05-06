@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 
 import { OTPInput as OTPInputNative } from 'input-otp-native';
 

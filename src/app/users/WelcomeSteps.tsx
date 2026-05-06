@@ -8,12 +8,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 import bgImgSrc from '~/assets/img/bg.png';
 import { SafeAreaBackground } from '~/components/blocks/SafeAreaBackground';
-import { Button, ProgressBar, Space } from '~/components/ui';
+import { Button, ProgressBar } from '~/components/ui';
 import { ButtonColors } from '~/components/ui/Button';
 import { ChildForm } from '~/components/users/UserForm/ChildForm';
 import { ParentForm } from '~/components/users/UserForm/ParentForm';
-import { UserPassword } from '~/components/users/UserPassword/UserPassword';
-import { Welcome, Welcome1, Welcome2, Welcome3 } from '~/components/welcomeSteps';
+import { Welcome1, Welcome2, Welcome3 } from '~/components/welcomeSteps';
 import { useI18nHeaderTitle } from '~/hooks/useI18nHeaderTitle';
 import { t } from '~/services';
 import { addChild, clearChildren } from '~/store/children/slice';

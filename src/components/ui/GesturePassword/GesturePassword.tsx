@@ -19,11 +19,11 @@ type Props = {
   minLength?: number;
 };
 
-type Point = {
-  id: number;
-  x: number;
-  y: number;
-};
+// type Point = {
+//   id: number;
+//   x: number;
+//   y: number;
+// };
 
 const GRID_SIZE = 3;
 
@@ -33,10 +33,10 @@ export const GesturePassword: React.FC<Props> = ({
   minLength = 4,
 }) => {
   const [selected, setSelected] = useState<number[]>([]);
-  const [layout, setLayout] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
+  // const [layout, setLayout] = useState<{ x: number; y: number }>({
+  //   x: 0,
+  //   y: 0,
+  // });
 
   const points = useMemo(() => {
     const spacing = size / GRID_SIZE;
@@ -113,8 +113,8 @@ export const GesturePassword: React.FC<Props> = ({
   ).current;
 
   const onLayout = (event: LayoutChangeEvent) => {
-    const { x, y } = event.nativeEvent.layout;
-    setLayout({ x, y });
+  //   const { x, y } = event.nativeEvent.layout;
+  //   setLayout({ x, y });
   };
 
   const handleComplete = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 
-import { useNavigation } from 'expo-router';
+// import { useNavigation } from 'expo-router';
 import { List } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 

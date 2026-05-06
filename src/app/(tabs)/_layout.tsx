@@ -1,6 +1,4 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
-
 import { Tabs } from 'expo-router';
 import { t } from 'i18next';
 import { useSelector } from 'react-redux';

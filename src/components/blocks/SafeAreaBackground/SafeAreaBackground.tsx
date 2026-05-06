@@ -5,9 +5,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { styles } from './styles';
 import { ISafeAreaBackground, StatusBarContent } from './types';
 
-// Default background image - you'll need to add this to your assets
-// import bgImgSrc from '#/assets/img/bgWave.png';
-
 export const SafeAreaBackground: React.FC<ISafeAreaBackground> = ({
   children,
   bgImg,

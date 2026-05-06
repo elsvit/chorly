@@ -6,15 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import RewardImage from '~/assets/img/tabs/tab_rewards_active.png';
 import RoutinesImage from '~/assets/img/tabs/tab_routines_active.png';
 import TasksImage from '~/assets/img/tabs/tab_tasks_active.png';
-import {
-  Button,
-  Card,
-  Select,
-  Space,
-  Switch,
-  Text,
-  TextInput,
-} from '~/components/ui';
+import { Card, Space, Text } from '~/components/ui';
 import { t } from '~/services';
 import { spacing } from '~/styles';
 import { Colors } from '~/styles';
@@ -58,7 +50,7 @@ export const Welcome1: React.FC = () => {
         end={{ x: 0.5, y: 0 }}
         start={{ x: 0.5, y: 1 }}
         locations={[0.2, 0.8]}
-        style={[styles.gradient,styles.forFamilies]}
+        style={[styles.gradient, styles.forFamilies]}
       >
         <View style={styles.row}>
           <View>
@@ -86,7 +78,7 @@ export const Welcome1: React.FC = () => {
         end={{ x: 0.5, y: 0 }}
         start={{ x: 0.5, y: 1 }}
         locations={[0.2, 0.8]}
-        style={[styles.gradient,styles.motivation]}
+        style={[styles.gradient, styles.motivation]}
       >
         <View style={styles.row}>
           <View>
@@ -114,7 +106,7 @@ export const Welcome1: React.FC = () => {
         end={{ x: 0.5, y: 0 }}
         start={{ x: 0.5, y: 1 }}
         locations={[0.2, 0.8]}
-        style={[styles.gradient,styles.insights]}
+        style={[styles.gradient, styles.insights]}
       >
         <View style={styles.row}>
           <View>
@@ -165,7 +157,6 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     marginVertical: spacing(2),
     padding: spacing(4),
-
   },
   textContainer: {
     flex: 1,

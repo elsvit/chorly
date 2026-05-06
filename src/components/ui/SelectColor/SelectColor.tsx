@@ -43,7 +43,7 @@ export const SelectColor: React.FC<SelectColorProps> = ({
   style,
 }) => {
   return (
-    <>
+    <View style={style}>
       <Text style={styles.label}>{t('users.color') || 'Color'}</Text>
       <View style={styles.swatchGrid}>
         {options.map(opt => {
@@ -77,6 +77,6 @@ export const SelectColor: React.FC<SelectColorProps> = ({
         })}
       </View>
       {!!errorMessage && <Text style={styles.errorText}>{errorMessage}</Text>}
-    </>
+    </View>
   );
 };

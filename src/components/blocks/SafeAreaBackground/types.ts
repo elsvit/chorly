@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ImageSourcePropType, StatusBarStyle } from 'react-native';
+import { ImageSourcePropType } from 'react-native';
 
 export enum StatusBarContent {
   LIGHT = 'light-content',

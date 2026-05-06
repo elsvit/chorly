@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { SafeAreaBackground } from '~/components/blocks/SafeAreaBackground';
 import { ParentForm } from '~/components/users/UserForm/ParentForm';
-import { useI18nHeaderTitle } from '~/hooks/useI18nHeaderTitle';
-import { addParent, clearParents } from '~/store/parents/slice';
+// import { useI18nHeaderTitle } from '~/hooks/useI18nHeaderTitle';
+import { addParent } from '~/store/parents/slice';
 import { EFormMode } from '~/types/ICommon';
 import { IParent, ParentFormProps } from '~/types/IParent';
 

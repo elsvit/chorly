@@ -39,7 +39,7 @@ import { GesturePasswordIconButton } from '~/components/ui/GesturePasswordIconBu
 import { OTPInputIconButton } from '~/components/ui/OTPInputIconButton';
 import { SelectAvatars } from '~/components/ui/SelectAvatars/SelectAvatars';
 import { SelectColor } from '~/components/ui/SelectColor';
-import { useI18nHeaderTitle } from '~/hooks/useI18nHeaderTitle';
+// import { useI18nHeaderTitle } from '~/hooks/useI18nHeaderTitle';
 import { t } from '~/services';
 import { EFamilyRole, ERole } from '~/store/settings/enums';
 import { userColors } from '~/styles';
@@ -137,8 +137,6 @@ export const ParentForm: FC<Props> = ({
     passwordPattern: z.string().trim().min(1, requiredMessage),
     // passwordPattern: z.string().trim().min(1, requiredMessage).optional(),
   });
-
-  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   const FAMILY_ROLE_OPTIONS: IOptions<EFamilyRole>[] = [
     {
@@ -314,7 +312,7 @@ export const ParentForm: FC<Props> = ({
             <Controller
               control={control}
               name="passwordPattern"
-              render={({ field: { value, onChange } }) => (
+              render={({ field: { onChange } }) => (
                 <>
                   <Text style={styles.label}>{t('users.password')}</Text>
                   <View style={styles.row}>

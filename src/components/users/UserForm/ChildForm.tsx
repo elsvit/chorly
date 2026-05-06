@@ -21,19 +21,17 @@ import { SafeAreaBackground } from '~/components/blocks/SafeAreaBackground';
 import {
   Button,
   Card,
-  Select,
   Space,
-  Switch,
   Text,
   TextInput,
 } from '~/components/ui';
 import { SelectAvatars } from '~/components/ui/SelectAvatars';
 import { SelectColor } from '~/components/ui/SelectColor';
-import { useI18nHeaderTitle } from '~/hooks/useI18nHeaderTitle';
+// import { useI18nHeaderTitle } from '~/hooks/useI18nHeaderTitle';
 import { t } from '~/services';
 import { ERole } from '~/store/settings/enums';
 import { userColors } from '~/styles';
-import { ChildFormProps, IChild } from '~/types';
+import { ChildFormProps } from '~/types';
 import { EFormMode } from '~/types/ICommon';
 import { capitalizeFirst } from '~/utils/string';
 
@@ -114,8 +112,6 @@ export const ChildForm: React.FC<Props> = ({
     avatar: z.string().trim().min(1, requiredMessage),
     passwordPattern: z.string().trim().optional(),
   });
-
-  const [isDisabled, setIsDisabled] = React.useState<boolean>(false);
 
   const {
     control,
@@ -215,7 +211,7 @@ export const ChildForm: React.FC<Props> = ({
             <Controller
               control={control}
               name="passwordPattern"
-              render={({ field: { value, onChange } }) => (
+              render={({ field: { onChange } }) => (
                 <>
                   <Text style={styles.label}>{t('users.password')}</Text>
                   <View style={styles.row}>

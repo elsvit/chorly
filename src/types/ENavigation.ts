@@ -1,6 +1,3 @@
-// import type { StackNavigationProp } from '@react-navigation/stack';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-
 export enum EMainTabs {
   Tasks = 'Tasks',
   Routines = 'Routines',

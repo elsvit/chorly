@@ -2,10 +2,8 @@ import React from 'react';
 import { Modal, Pressable, SafeAreaView, StyleSheet, View } from 'react-native';
 
 import { Text } from '~/components/ui';
-import { ButtonColors } from '~/components/ui/Button';
 import { GesturePassword } from '~/components/ui/GesturePassword';
 import { IconButton } from '~/components/ui/IconButton';
-import { ThemeColors } from '~/constants/theme';
 import { t } from '~/services';
 import CloseIcon from '~/assets/svg/common/cross.svg';
 import { Colors } from '~/styles';

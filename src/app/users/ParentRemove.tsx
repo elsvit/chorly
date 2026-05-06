@@ -2,17 +2,16 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { useRouter } from 'expo-router';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import { SafeAreaBackground } from '~/components/blocks/SafeAreaBackground';
 import { Button } from '~/components/ui/Button/Button';
 import { useI18nHeaderTitle } from '~/hooks/useI18nHeaderTitle';
 import { t } from '~/services';
-import { clearParents } from '~/store/parents/slice';
 
 export default function ParentRemove() {
   useI18nHeaderTitle('users.delete');
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const router = useRouter();
 
   const handleRemove = () => {

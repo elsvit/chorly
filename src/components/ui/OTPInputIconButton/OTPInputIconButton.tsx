@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
 
+import OTPInputIcon from '~/assets/svg/users/password-pin.svg';
 import { OTPInputModal } from '~/components/modals';
 import { ButtonColors } from '~/components/ui/Button';
 import { IconButton } from '~/components/ui/IconButton';
 import { t } from '~/services';
-import OTPInputIcon from '~/assets/svg/users/password-pin.svg';
-import { StyleProp, ViewStyle } from 'react-native';
 
 type Props = {
   onChange?: (password: string) => void;
@@ -22,14 +22,12 @@ type Props = {
 export const OTPInputIconButton: React.FC<Props> = ({
   onChange,
   title = t('users.password'),
-  size,
-  maxLength = 8,
+  maxLength = 4,
   Icon: IconProp,
   disabled,
   style,
 }) => {
   const [open, setOpen] = React.useState(false);
-
 
   const handleComplete = React.useCallback(
     (str: string) => {
@@ -55,7 +53,7 @@ export const OTPInputIconButton: React.FC<Props> = ({
         isVisible={open}
         onRequestClose={() => setOpen(false)}
         title={title}
-        maxLength={4}
+        maxLength={maxLength}
         onComplete={handleComplete}
       />
     </View>
