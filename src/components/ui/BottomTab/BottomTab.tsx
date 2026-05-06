@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 
-import { Text } from './Text';
+import { Text } from '~/components/ui';
 
 export type BottomTabProps = {
   Icon: ImageSourcePropType;

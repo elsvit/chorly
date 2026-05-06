@@ -1,8 +1,10 @@
-export interface IChild {
+export interface IChild extends CreatedProps {
   id: string;
   name: string;
-  updatedAt?: string;
-  createdAt: string;
+  birthday?: string;
+  color?: string;
+  avatar?: string;
+  passwordPattern?: string;
 }
 
-export type ChildFormProps = Omit<IChild, 'id' | 'updatedAt' | 'createdAt'>;
+export type ChildFormProps = OmitCreatedKeys<IChild>;

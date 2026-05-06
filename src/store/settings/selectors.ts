@@ -12,3 +12,9 @@ export const selectIsLangInitiating = (state: RootStateT) =>
 
 export const selectIsRecurringTabSeparated = (state: RootStateT) =>
   (state[EStateName.settings] as Persisted<IStateSettings>).isRecurringTabSeparated;
+
+export const selectCurrentUser = (state: RootStateT) =>
+  (state[EStateName.settings] as Persisted<IStateSettings>).currentUser;
+
+export const selectCurrentRole = (state: RootStateT) =>
+  (state[EStateName.settings] as Persisted<IStateSettings>).currentRole;

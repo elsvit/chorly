@@ -1,35 +1,32 @@
 import { useEffect } from 'react';
 
 import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from '@react-navigation/native';
-import type { NativeStackNavigationOptions } from '@react-navigation/native-stack';
-import { Stack } from 'expo-router';
-import { Provider as PaperProvider } from 'react-native-paper';
-import 'react-native-reanimated';
-import { useDispatch, useSelector } from 'react-redux';
-import { useFonts } from 'expo-font';
-
-import {
-  Roboto_400Regular,
-  Roboto_500Medium,
-  Roboto_700Bold,
-} from '@expo-google-fonts/roboto';
-
-import {
-  Rubik_400Regular,
-  Rubik_500Medium,
-  Rubik_700Bold,
-} from '@expo-google-fonts/rubik';
-
-import {
   Fredoka_400Regular,
   Fredoka_500Medium,
   Fredoka_600SemiBold,
   Fredoka_700Bold,
 } from '@expo-google-fonts/fredoka';
+import {
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+} from '@expo-google-fonts/roboto';
+import {
+  Rubik_400Regular,
+  Rubik_500Medium,
+  Rubik_700Bold,
+} from '@expo-google-fonts/rubik';
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider,
+} from '@react-navigation/native';
+import type { NativeStackNavigationOptions } from '@react-navigation/native-stack';
+import { useFonts } from 'expo-font';
+import { Stack } from 'expo-router';
+import { Provider as PaperProvider } from 'react-native-paper';
+import 'react-native-reanimated';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Loading } from '~/components/ui/Loading';
 import { useColorScheme } from '~/hooks/use-color-scheme';
@@ -45,8 +42,10 @@ export default function RootStack() {
 
   const lang = useSelector(selectLang) ?? ELang.es;
 
-  const isLangInitiating = useSelector(selectIsLangInitiating) || false; // TODO remove this
-  // const parentIds = useSelector(selectParentIds);
+  const isLangInitiating = useSelector(selectIsLangInitiating);
+  const parentIds = useSelector(selectParentIds);
+
+  console.log('TEST_51 RootStack', parentIds);
 
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
@@ -76,41 +75,57 @@ export default function RootStack() {
     headerBackButtonDisplayMode: 'minimal',
   };
 
+  const initialRouteName = 'users/WelcomeSteps';
+  // parentIds.length === 0 ? 'users/WelcomeSteps' : 'users/Users';
+
+  console.log(
+    'TEST_79',
+    parentIds.length,
+    'initialRouteName',
+    initialRouteName,
+  );
+
   return (
     <PaperProvider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack
-          key={`stack-${lang}`}
-          // initialRouteName={parentIds.length === 0 ? 'parents/ProfileSteps' : '(tabs)'}
-          initialRouteName={'(tabs)'}
-        >
+        <Stack key={`stack-${lang}`} initialRouteName={initialRouteName}>
+          <Stack.Screen
+            name="users/WelcomeSteps"
+            options={minimalHeaderBackOptions}
+          />
+          <Stack.Screen name="users/Users" options={minimalHeaderBackOptions} />
+
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          {/*<Stack.Screen*/}
-          {/*  name="users/ProfileSteps"*/}
-          {/*  options={{ headerShown: false }}*/}
-          {/*/>*/}
-          {/*<Stack.Screen*/}
-          {/*  name="modal"*/}
-          {/*  options={{ presentation: 'modal', title: 'Modal' }}*/}
-          {/*/>*/}
 
-          {/*<Stack.Screen*/}
-          {/*  name="more/Settings/Settings"*/}
-          {/*  options={minimalHeaderBackOptions}*/}
-          {/*/>*/}
+          <Stack.Screen
+            name="more/Settings/Settings"
+            options={minimalHeaderBackOptions}
+          />
 
-          {/*<Stack.Screen*/}
-          {/*  name="users/UserAdd"*/}
-          {/*  options={minimalHeaderBackOptions}*/}
-          {/*/>*/}
-          {/*<Stack.Screen*/}
-          {/*  name="users/UserEdit"*/}
-          {/*  options={minimalHeaderBackOptions}*/}
-          {/*/>*/}
-          {/*<Stack.Screen*/}
-          {/*  name="users/UsersRemove"*/}
-          {/*  options={minimalHeaderBackOptions}*/}
-          {/*/>*/}
+          <Stack.Screen
+            name="users/ParentAdd"
+            options={minimalHeaderBackOptions}
+          />
+          <Stack.Screen
+            name="users/ParentEdit"
+            options={minimalHeaderBackOptions}
+          />
+          <Stack.Screen
+            name="users/ParentRemove"
+            options={minimalHeaderBackOptions}
+          />
+          <Stack.Screen
+            name="users/ChildAdd"
+            options={minimalHeaderBackOptions}
+          />
+          <Stack.Screen
+            name="users/ChildEdit"
+            options={minimalHeaderBackOptions}
+          />
+          <Stack.Screen
+            name="users/ChildRemove"
+            options={minimalHeaderBackOptions}
+          />
         </Stack>
       </ThemeProvider>
     </PaperProvider>

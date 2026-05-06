@@ -1,6 +1,4 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
-
 import { Tabs } from 'expo-router';
 import { t } from 'i18next';
 import { useSelector } from 'react-redux';
@@ -14,7 +12,7 @@ import RoutinesActiveIcon from '~/assets/img/tabs/tab_routines_active.png';
 import TasksIcon from '~/assets/img/tabs/tab_tasks.png';
 import TasksActiveIcon from '~/assets/img/tabs/tab_tasks_active.png';
 import { HapticTab } from '~/components/haptic-tab';
-import { BottomTab } from '~/components/ui/BottomTab';
+import { BottomTab } from '~/components/ui/BottomTab/BottomTab';
 import { ThemeColors } from '~/constants/theme';
 import { useColorScheme } from '~/hooks/use-color-scheme';
 import { selectIsRecurringTabSeparated } from '~/store/settings/selectors';

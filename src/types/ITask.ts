@@ -1,4 +1,4 @@
-import { ETaskRepeatType, ETaskStatus } from './ETasks';
+import { ETaskRepeatType, ETaskStatus } from './ETask';
 import { WeekDay } from './ICommon';
 
 export interface ITaskBase extends CreatedProps {
@@ -10,10 +10,7 @@ export interface ITaskBase extends CreatedProps {
   picture?: string;
 }
 
-export type TaskBaseFormProps = Omit<
-  ITaskBase,
-  'id' | 'updatedAt' | 'createdAt' | 'updatedBy' | 'createdBy'
->;
+export type TaskBaseFormProps = OmitCreatedKeys<ITaskBase>;
 
 export interface ITaskAssignment extends CreatedProps {
   id: string;

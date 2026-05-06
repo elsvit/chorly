@@ -12,6 +12,7 @@ type Props = PaperTextProps & {
   weight?: 'regular' | 'medium' | 'bold';
   fontFamily?: FontFamily;
   variant?: PaperTextProps['variant'];
+  color?: string;
 };
 
 const getFontFamily = (family: FontFamily, weight: string) => {
@@ -43,6 +44,7 @@ export const Text: React.FC<Props> = ({
   weight = 'regular',
   fontFamily = 'roboto',
   variant = 'bodyMedium',
+  color,
   style,
   children,
   ...rest
@@ -54,8 +56,13 @@ export const Text: React.FC<Props> = ({
     fontWeight: undefined, // IMPORTANT: avoid conflict with custom fonts
   };
 
+  const containerStyle = [textStyle, style];
+  if (color) {
+    containerStyle.push({ color });
+  }
+
   return (
-    <PaperText variant={variant} style={[textStyle, style]} {...rest}>
+    <PaperText variant={variant} style={containerStyle} {...rest}>
       {children}
     </PaperText>
   );
