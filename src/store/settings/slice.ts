@@ -1,12 +1,17 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ELang } from '~/types/ELang';
-import type{ IStateSettings } from './types';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
 import { EStateName } from '~/store/enums';
+import { ERole } from '~/store/settings/enums';
+import { ELang } from '~/types/ELang';
+
+import type { IStateSettings } from './types';
 
 const initialState: IStateSettings = {
   lang: null,
   isLangInitiating: true, // TODO Change from null to true
   isRecurringTabSeparated: true,
+  currentUser: null,
+  currentRole: null,
 };
 
 export const settingsSlice = createSlice({
@@ -23,6 +28,12 @@ export const settingsSlice = createSlice({
     setIsRecurringTabSeparated: (state, action: PayloadAction<boolean>) => {
       state.isRecurringTabSeparated = action.payload;
     },
+    setCurrentUser: (state, action: PayloadAction<string | null>) => {
+      state.currentUser = action.payload;
+    },
+    setCurrentRole: (state, action: PayloadAction<ERole | null>) => {
+      state.currentRole = action.payload;
+    },
   },
 });
 
@@ -31,5 +42,6 @@ export const {
   initLanguage,
   setLanguage,
   setIsRecurringTabSeparated,
+  setCurrentRole,
+  setCurrentUser,
 } = settingsSlice.actions;
-

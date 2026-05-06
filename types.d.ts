@@ -43,3 +43,12 @@ type CreatedProps = {
   updatedBy?: string;
   updatedAt?: string;
 };
+
+type CreatedKeys =
+  | 'id'
+  | 'createdAt'
+  | 'createdBy'
+  | 'updatedAt'
+  | 'updatedBy';
+
+type OmitCreatedKeys<T> = Omit<T, CreatedKeys>;

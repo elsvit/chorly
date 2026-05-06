@@ -1,98 +1,192 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import React, { FC } from 'react';
+import { ScrollView } from 'react-native';
 
-import { HelloWave } from '~/components/hello-wave';
-import ParallaxScrollView from '~/components/parallax-scroll-view';
-import { ThemedText } from '~/components/ui/themed-text';
-import { ThemedView } from '~/components/ui/themed-view';
-import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
+import { Divider, List } from 'react-native-paper';
+import { SvgProps } from 'react-native-svg';
+import { useSelector } from 'react-redux';
 
-export default function HomeScreen() {
+import bgImgSrc from '~/assets/img/bg.png';
+import ChevronDownIcon from '~/assets/svg/common/chevron-down.svg';
+import ChevronUpIcon from '~/assets/svg/common/chevron-up.svg';
+import SettingsIcon from '~/assets/svg/more/settings.svg';
+import { SafeAreaBackground } from '~/components/blocks/SafeAreaBackground';
+import { ScreenHeader } from '~/components/blocks/ScreenHeader';
+import { t } from '~/services';
+import { palette, spacing, styleSheetFactory } from '~/styles';
+import { useStyle } from '~/styles/hooks';
+import { EScreens } from '~/types/ENavigation';
+
+export interface IMoreItem {
+  title: string;
+  Icon: FC<SvgProps>;
+  fill?: string;
+  navigateTo?: EScreens;
+  navigateToParams?: any;
+  onPress?: () => void;
+  items?: IMoreItem[];
+}
+
+export default function More() {
+  const router = useRouter();
+
+  const [styles] = useStyle(themedStyles);
+
+  const MORE_ITEMS: IMoreItem[] = [
+    {
+      title: t('settings.title'),
+      Icon: SettingsIcon,
+      navigateTo: EScreens.Settings,
+    },
+  ];
+  const title = t('more.title');
+
+  const handlePress = (
+    navigateTo: EScreens | undefined,
+    navigateToParams?: any,
+  ) => {
+    navigateTo &&
+      router.push({
+        pathname: `/${navigateTo}` as any,
+        params: navigateToParams,
+      });
+  };
+
+  const keyExtractor = (item: IMoreItem, index: number) =>
+    `${item.title}-${index}`;
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('~/assets/img/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <SafeAreaBackground hasTopInsets bgImg={bgImgSrc}>
+      <ScreenHeader title={title} containerStyle={{backgroundColor: 'transparent'}} />
+      <ScrollView>
+        <List.Section>
+          {MORE_ITEMS.map((item, index) => {
+            if (item.items) {
+              return (
+                <React.Fragment key={keyExtractor(item, index)}>
+                  <List.Accordion
+                    title={item.title}
+                    left={props => (
+                      <item.Icon
+                        {...props}
+                        style={styles.icon}
+                        width={24}
+                        height={24}
+                        fill={item.fill}
+                      />
+                    )}
+                    right={({ isExpanded }) =>
+                      isExpanded ? <ChevronUpIcon /> : <ChevronDownIcon />
+                    }
+                    style={styles.item}
+                    titleStyle={styles.title}
+                  >
+                    {item.items.map((subItem, subIndex) => (
+                      <List.Item
+                        key={keyExtractor(subItem, subIndex)}
+                        title={subItem.title}
+                        left={props => (
+                          <subItem.Icon
+                            {...props}
+                            style={styles.icon}
+                            width={24}
+                            height={24}
+                          />
+                        )}
+                        onPress={() =>
+                          subItem.navigateTo &&
+                          handlePress(
+                            subItem.navigateTo,
+                            subItem.navigateToParams,
+                          )
+                        }
+                        style={styles.subItem}
+                        titleStyle={styles.subtitle}
+                      />
+                    ))}
+                  </List.Accordion>
+                  <Divider />
+                </React.Fragment>
+              );
+            }
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+            // Otherwise, render a regular List.Item
+            return (
+              <React.Fragment key={keyExtractor(item, index)}>
+                <List.Item
+                  title={item.title}
+                  left={props => (
+                    <item.Icon
+                      {...props}
+                      style={styles.icon}
+                      width={24}
+                      height={24}
+                    />
+                  )}
+                  onPress={() => handlePress(item.navigateTo)}
+                  style={styles.item}
+                  titleStyle={styles.title}
+                />
+                <Divider />
+              </React.Fragment>
+            );
+          })}
+        </List.Section>
+      </ScrollView>
+    </SafeAreaBackground>
   );
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+const themedStyles = styleSheetFactory(palette => ({
+  root: {
+    flex: 1,
+    // backgroundColor: palette.background.primary,
+    position: 'relative',
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  item: {
+    height: 52,
+    maxHeight: 52,
+    paddingHorizontal: spacing(5),
+    // backgroundColor: palette.background.primary,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  icon: {},
+  title: {
+    fontSize: 16,
+    lineHeight: 20,
+    letterSpacing: 0.2,
+    fontWeight: '700',
+    color: palette.text.primary,
   },
-});
+  disabledTitle: {
+    color: palette.text.disabled,
+  },
+  description: {
+    fontSize: 14,
+    lineHeight: 20,
+    letterSpacing: 0.2,
+    fontWeight: '400',
+    color: palette.text.placeholder,
+  },
+  subItem: {
+    height: 48,
+    maxHeight: 48,
+    paddingRight: spacing(),
+    paddingLeft: spacing(8),
+    // backgroundColor: palette.background.primary,
+  },
+  subtitle: {
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '600',
+    letterSpacing: 0.2,
+    color: palette.text.primary,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: palette.border,
+  },
+  logout: {
+    marginBottom: 32,
+  },
+  logoutText: { fontSize: 16, fontWeight: '400' },
+}));

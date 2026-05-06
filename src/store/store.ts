@@ -34,42 +34,42 @@ const settingsPersistConfig: PersistConfig<IStateSettings> = {
   key: EStateName.settings,
   storage,
   stateReconciler: autoMergeLevel2,
-  whitelist: ['lang'],
+  // whitelist: ['lang'],
 };
 
 const parentsPersistConfig: PersistConfig<IStateParents> = {
   key: EStateName.parents,
   storage,
   stateReconciler: autoMergeLevel2,
-  whitelist: ['entities'],
+  // whitelist: ['entities', 'ids'],
 };
 
 const childrenPersistConfig: PersistConfig<IStateChildren> = {
   key: EStateName.children,
   storage,
   stateReconciler: autoMergeLevel2,
-  whitelist: ['entities'],
+  // whitelist: ['entities', 'ids'],
 };
 
 const tasksPersistConfig: PersistConfig<IStateTasks> = {
   key: EStateName.tasks,
   storage,
   stateReconciler: autoMergeLevel2,
-  whitelist: ['entities'],
+  // whitelist: ['entities', 'ids'],
 };
 
 const taskBasePersistConfig: PersistConfig<IStateTaskBase> = {
   key: EStateName.taskBase,
   storage,
   stateReconciler: autoMergeLevel2,
-  whitelist: ['entities'],
+  // whitelist: ['entities'],
 };
 
 const taskAssignmentPersistConfig: PersistConfig<IStateTaskAssignment> = {
   key: EStateName.taskAssignment,
   storage,
   stateReconciler: autoMergeLevel2,
-  whitelist: ['entities'],
+  // whitelist: ['entities'],
 };
 
 // Combine reducers

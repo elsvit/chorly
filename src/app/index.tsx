@@ -1,12 +1,25 @@
 import React from 'react';
-
-import { Redirect } from 'expo-router';
 import 'react-native-get-random-values';
 
-import { EMainTabs } from '~/types/ENavigation';
+import { Redirect } from 'expo-router';
+import { useSelector } from 'react-redux';
 
-// Redirect the root path "/" to the default tab route (route groups are invisible)
+import { selectParentIds } from '~/store/parents/selectors';
+import { EMainTabs } from '~/types/ENavigation';
+import { selectCurrentUser, selectCurrentRole } from '~/store/settings';
+
 export default function Index() {
-  // Note: EMainTabs has no "Home" entry; use a valid tab, e.g., Tasks
-  return <Redirect href={`/${EMainTabs.Tasks}`} />;
+  const parentIds = useSelector(selectParentIds);
+  const currentUserId = useSelector(selectCurrentUser);
+  const currentUserRole = useSelector(selectCurrentRole);
+
+  if (parentIds.length === 0) {
+    return <Redirect href="/users/WelcomeSteps" />;
+  }
+
+  if (!currentUserId || !currentUserRole) {
+    return <Redirect href="/users/Users" />;
+  }
+
+  return <Redirect href={`/users/WelcomeSteps`} />;
 }
